@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #121212;
+                color: white;
+                margin: 0;
+                padding: 20px;
+            }
+            header {
+                background-color: #333;
+                color: white;
+                padding: 10px 0;
+                text-align: center;
+            }
+            h1 {
+                margin: 0;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            li, p {
+                background-color: #333;
+                margin: 5px 0;
+                padding: 10px;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1> To-Do List</h1>
+        </header>
+        <section>
+            <h2>Welcome, <%= username %> !</h2>
+            <ul>
+            <% if (todo.length > 0) { %>
+         
+                <% for(let i=0; i<todo.length; i++){%>
+                    <p><%= todo[i] %></p>
+                <%} %>
+                
+                <!-- <p><%= todo %></p> -->
+                    
+            
+            
+                 <% } else { %>
+                   <p>No tasks for today!</p>
+                  <% } %>
+               </ul>
+        </section>            
+    </body>
+</html>    

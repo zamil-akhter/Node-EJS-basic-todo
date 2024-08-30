@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        
+       
+    </style>
+</head>
+<body>
+    <form action="/showTodo" method="post">
+        <header>
+            <h1> Add New To-Do</h1>
+        </header>
+        <br>
+        <Label>Username : </Label>
+        <br>
+        <input type="text" name="username" placeholder="Username">
+        <br>
+        <br>
+        <Label>Tasks : </Label>
+        <br>
+        <input type="text" name="todo" placeholder="Enter Task">
+        <button type="button" onclick="addFields(event)"> + New Field</button>
+        <div id="inputFields">
+            <!-- <input type="text" name="todo"> -->
+            
+        </div>
+        <br>
+        <button>Add To-Do</button>
+    </form>
+                
+    <script>
+        function addFields(event){
+            event.preventDefault(); 
+            let mainDiv = document.getElementById('inputFields');
+            let newInput = document.createElement('input');
+            newInput.setAttribute('placeholder', 'Enter Task');
+            newInput.setAttribute('type', 'text');
+            newInput.setAttribute('name', 'todo');
+            console.log('button is clicking');
+            let lineBreak = document.createElement('br');            
+            mainDiv.appendChild(newInput);
+            mainDiv.appendChild(lineBreak);
+        }        
+    </script>
+</body>
+</html>
