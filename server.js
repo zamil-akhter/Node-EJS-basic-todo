@@ -1,29 +1,19 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 
-
 app.set('view engine', 'ejs');
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}))
 
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 app.get('/', (req,res)=>{
-    // let data = {
-    //     username : 'Zamil Akhter',
-    //     tasks: ['Buy groceries', 'Clean the house', 'Finish project']
-    // }
     res.render('form');
-    // console.log(res)
-
 })
 
 app.post('/showTodo', (req,res)=> {
     console.log(req.body);
-    let data = {...req.body};
-    // console.log('ddddddddddddddddd',data);
-    
-    res.render('index', data)
+    // console.log(typeof req.body.todo);
+    res.render('index', req.body)
 })
 
 app.listen(8000, ()=>{

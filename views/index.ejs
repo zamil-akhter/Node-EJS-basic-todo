@@ -36,20 +36,19 @@
         <section>
             <h2>Welcome, <%= username %> !</h2>
             <ul>
-            <% if (todo.length > 0) { %>
-         
-                <% for(let i=0; i<todo.length; i++){%>
-                    <p><%= todo[i] %></p>
-                <%} %>
+                <% if (todo.length > 0) { %>
+                    <%if(typeof(todo) === 'object'){%>
+                        <% for(let i=0; i<todo.length; i++){%>
+                            <p><%= todo[i] %></p>
+                        <%} %>
+                    <%}else{%>
+                        <p><%= todo %></p>
+                    <%}%>
                 
-                <!-- <p><%= todo %></p> -->
-                    
-            
-            
-                 <% } else { %>
-                   <p>No tasks for today!</p>
-                  <% } %>
-               </ul>
+                <% } else { %>
+                    <p>No tasks for today!</p>
+                <% } %>
+            </ul>
         </section>            
     </body>
 </html>    
